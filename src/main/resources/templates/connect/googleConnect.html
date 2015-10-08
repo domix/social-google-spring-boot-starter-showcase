@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:social="http://spring.io/springsocial"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>Spring Social Showcase</title>
+</head>
+<body>
+<div id="content" layout:fragment="content">
+    <h3>Connect to Google</h3>
+
+    <form th:action="@{/connect/google}" method="POST">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+        <input type="hidden" name="scope" value="email https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/tasks https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/latitude.all.best" />
+        <input type="hidden" name="request_visible_actions" value="http://schemas.google.com/AddActivity http://schemas.google.com/BuyActivity http://schemas.google.com/CheckInActivity http://schemas.google.com/CommentActivity http://schemas.google.com/CreateActivity http://schemas.google.com/DiscoverActivity http://schemas.google.com/ListenActivity http://schemas.google.com/ReserveActivity http://schemas.google.com/ReviewActivity http://schemas.google.com/WantActivity"/>
+        <input type="hidden" name="access_type" value="offline"/>
+        <div class="formInfo">
+            <p>You aren't connected to Google yet. Click the button to connect Spring Social Showcase with your Google account.</p>
+        </div>
+        <p><button type="submit"><img th:src="@{/social/google/sign-in-with-google.png}"/></button></p>
+        <label for="postToWall"><input id="postToWall" type="checkbox" name="postToWall" /> Tell your friends about Spring Social Showcase on your Google wall</label>
+    </form>
+</div>
+</body>
+</html>
