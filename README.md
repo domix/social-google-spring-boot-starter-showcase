@@ -1,3 +1,3 @@
 # social-google-spring-boot-starter-showcase
 
-Se muestra cómo usarlo 
+Shows how to use Social Google for Spring Boot
